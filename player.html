@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Video.js  | HTML5 Video Player</title>
+  <link href="video-js-5.11.0/video-js.css" rel="stylesheet" type="text/css">
+  <script src="video-js-5.11.0/video.js"></script>
+  <!-- If you'd like support IE8-->
+  <script src="video-js-5.11.0/ie8/videojs-ie8.js"></script>
+  <!-- For Other than Safari (Chrome,etc)-->
+  <script src="videojs-contrib-hls/3.4.0/videojs-contrib-hls.js"></script>
+  <script src="videojs-contrib-media-sources/3.1.2/videojs-contrib-media-sources.js"
+  ></script>
+  <!-- Set the location of the flash SWF -->
+  <script>
+    videojs.options.flash.swf = "video-js-5.11.0/video-js.swf"
+  </script>
+
+</head>
+<body>
+  <p style="background-color:#eee; border: 1px solid #777; padding: 10px; font-size: .8em; line-height: 1.5em; font-family: Verdana, sans-serif;">This page demonstrates a DCC Videojs Playback</p>
+
+  <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="360"
+      data-setup="{}">
+
+    <source src="https://solutions.brightcove.com/jwhisenant/hls/apple/bipbop/bipbopall.m3u8" type="application/x-mpegURL" />
+    <source src="https://devstreaming.apple.com/videos/wwdc/2016/504m956dgg4hlw2uez9/504/hls_vod_mvp.m3u8" type="application/x-mpegURL">
+
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+</body>
+</html>
