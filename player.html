@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>Video.js  | HTML5 Video Player</title>
+  
+  <!-- Bootstrap -->
+  <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- videojs -->
   <link href="video-js-5.11.0/video-js.css" rel="stylesheet" type="text/css">
   <script src="video-js-5.11.0/video.js"></script>
   <!-- If you'd like support IE8-->
@@ -18,15 +25,38 @@
 
 </head>
 <body>
-  <p style="background-color:#eee; border: 1px solid #777; padding: 10px; font-size: .8em; line-height: 1.5em; font-family: Verdana, sans-serif;">This page demonstrates a DCC Videojs Playback</p>
+  <div class="row">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <a role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
+          Sample Streams <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+          <li class="dropdown-submenu" ng-if="item.submenu" ng-repeat="item in availableStreams">
+            <a tabindex="-1" href="#">{{item.name}}</a>
+            <ul class="dropdown-menu">
+              <li ng-repeat="subitem in item.submenu">
+                <a title="{{ subitem.moreInfo && 'See ' + subitem.moreInfo + ' for more information' || undefined }}" ng-click="setStream(subitem)">{{subitem.name}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <input type="text" class="form-control" placeholder="Enter your manifest URL here" ng-model="selectedItem.url">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" ng-click="doLoad()">Load</button>
+      </span>
+    </div>
+  </div>
 
   <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="360"
       data-setup="{}">
-
-    <source src="https://solutions.brightcove.com/jwhisenant/hls/apple/bipbop/bipbopall.m3u8" type="application/x-mpegURL" />
-    <source src="https://devstreaming.apple.com/videos/wwdc/2016/504m956dgg4hlw2uez9/504/hls_vod_mvp.m3u8" type="application/x-mpegURL">
-
+    <source src="https://nhk-vh.akamaihd.net/i//figure/r/zf3hi9sax/figure/t759_1_1.mp4/master.m3u8" type="application/x-mpegURL" />
     <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
   </video>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
